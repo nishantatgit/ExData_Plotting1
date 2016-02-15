@@ -2,5 +2,6 @@ c_data <- read.csv(file="household_power_consumption.txt", header = TRUE, sep = 
 c_data <- transform(c_data, Date = as.Date(Date,"%d/%m/%Y"))
 f_data <- subset(c_data, Date >= "2007-02-01" & Date <= "2007-02-02")
 f_data <- transform(f_data,Global_active_power = as.numeric(Global_active_power))
+with(f_data,hist(Global_active_power,col="Red", xlab ="Global Active Power(kilowatts)", main = "Global Active Power"))
 dev.copy(png, file="plot1.png", width = 480 , height = 480 , units = "px")
 dev.off(which = dev.cur())
